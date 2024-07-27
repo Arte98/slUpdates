@@ -5,15 +5,38 @@
         </title>
         <style>
             BODY {
-                background: url('https://cdn.discordapp.com/attachments/1260631867510493224/1266474751673634966/image.png?ex=66a54806&is=66a3f686&hm=fa0d987724e23c7725ba1fa9dcf7989da417860fb5da9b0a338ef853c68d13be&') repeat-y;
-  		
-    		background-size:     cover;                      /* <------ */
-    		background-repeat:   no-repeat;
-    		background-position: center center; 
-		color: white;
-                font-family: 'Courier New', Courier, monospace;
+                background-color: #eb01a5;
+                background: linear-gradient(
+                  to left,
+                  rgba(0,0,0, 0) 30%,
+                  rgba(0,0,0, 100) 100%
+                ),url('https://cdn.discordapp.com/attachments/1260631867510493224/1266057645350064138/00de6fcce74eafb1.png?ex=66a5bdd0&is=66a46c50&hm=76ef8b6713bda90a9f78de29afa7d34dca20d55297f85eac162955c3a4e93bdb&');
+                background-size:     cover;                      /* <------ */
+    		    background-repeat:   no-repeat;
+    		    background-position: center center;
+                background-attachment: fixed;
+
+		        color: white;
+                font-family:'Fixedsys Excelsior 3.01';
                 scroll-behavior: smooth;
-                background-attachment: fixed
+            }
+            *, html {
+                scroll-behavior: smooth !important;
+            }
+            .update {
+                color:azure;
+                cursor:pointer;
+                font-size: 25;
+                transition-duration: 0.4s;
+                text-align: center;
+                position: relative;
+            }
+            .update:hover {
+                color:blueviolet;
+                cursor:pointer;
+                transition-duration: 0.4s;
+                font-weight: 1200;
+                font-size: 30;
             }
             .hide {
                 display: none;
@@ -24,11 +47,16 @@
             .hide:checked + div {
                 display: block;
             }
+            .hide:checked + .update {
+                color: blueviolet;
+                font-size: 30;
+            }
             .hideDiv {
                 display: none;
                 font-size: 25px;
 	            padding-left: 70px;
-                background: #10101088;
+                background: #ffffff1a;
+                color: blueviolet;
             }
             #align {
                 padding: 25px;
@@ -48,7 +76,7 @@
             <br>
             <h1>SLASHERS UPDATES LIST v0.1</h1>
             <div>
-                <label for="2.0.3b" id="align_text" style="cursor: pointer; color:azure; font-size: 25;">Update 2.0.3b !NEW!</label>
+                <label for="2.0.3b" class="update" id="align_text">Update 2.0.3b !NEW!</label>
                 <input type="checkbox" id="2.0.3b" class="hide">
                 <div id="2.0.3b" class="hideDiv" style="color:rgb(183, 197, 197)">
                     🢒 Added map "The last forest" (By Tiya)
@@ -96,7 +124,7 @@
             </div>
             <br>
             <div>
-                <label for="2.0.3a" id="align_text" style="cursor: pointer; color:azure; font-size: 25;">Update 2.0.3a</label>
+                <label for="2.0.3a" id="align_text" class="update">Update 2.0.3a</label>
                 <input type="checkbox" id="2.0.3a" class="hide">
                 <div id="2.0.3a" class="hideDiv" style="color:rgb(183, 197, 197)">
                     🢒 Port to version 1.21
@@ -111,7 +139,7 @@
             </div>
             <br>
             <div>
-                <label for="2.0.2" id="align_text" style="cursor: pointer; color:azure; font-size: 25;">Update 2.0.2</label>
+                <label for="2.0.2" id="align_text" class="update">Update 2.0.2</label>
                 <input type="checkbox" id="2.0.2" class="hide">
                 <div id="2.0.2" class="hideDiv" style="color:rgb(183, 197, 197)">
                     🢒 Port to version 1.20.5
@@ -132,7 +160,7 @@
             </div>
             <br>
             <div>
-                <label for="2.0.1" id="align_text" style="cursor: pointer; color:azure; font-size: 25;">Update 2.0.1</label>
+                <label for="2.0.1" id="align_text" class="update">Update 2.0.1</label>
                 <input type="checkbox" id="2.0.1" class="hide">
                 <div id="2.0.1" class="hideDiv" style="color:rgb(183, 197, 197)">
                     🢒 Added new ability for killer - BRUTALITY
@@ -191,7 +219,7 @@
             </div>
             <br>
             <div>
-                <label for="2.0" id="align_text" style="cursor: pointer; color:azure; font-size: 25;">Update 2.0</label>
+                <label for="2.0" id="align_text" class="update">Update 2.0</label>
                 <input type="checkbox" id="2.0" class="hide">
                 <div id="2.0" class="hideDiv" style="color:rgb(183, 197, 197)">
                     THIS UPDATE FOR NEW YEAR EVENT
