@@ -29,19 +29,20 @@
                 scroll-behavior: smooth !important;
             }
             #align {
-                padding: 25px;
-	            padding-left: 100px;
+                margin: 25px;
+                margin-left: 100px;
                 right: 0;
                 left: 0;
                 top: 0
             }
             .content {
+                display: none; /* Скрыть содержимое по умолчанию */
+                max-height: 0; /* Устанавливаем начальную высоту 0 */
+                overflow: hidden; /* Скрыть переполнение */
+                transition: max-height 0.5s ease-out; /* Плавный переход */
                 color:rgb(183, 197, 197);
                 font-size: 24px;
-	            padding-left: 5px;
-                margin: 5px;
                 background: #ffffff1a;
-                overflow: hidden;
             }
             .content.show {
                 display: block; /* Отображаем содержимое при необходимости */
