@@ -1,264 +1,61 @@
-<html>
+<!DOCTYPE html>
+<html lang="ru">
     <head>
-        <title>
-            SL : Updates
-        </title>
+        <title>Открывающиеся секции</title>
         <style>
-            @font-face {
-             font-family: 'Fixedsys Excelsior 3.01';
-             src: url(font.ttf);
+            body {
+                background-color: wheat;
             }
-            BODY {
-                background-color: #eb01a5;
-                background: linear-gradient(
-                  to left,
-                  rgba(0,0,0, 0) 30%,
-                  rgba(0,0,0, 100) 100%
-                ),url('https://cdn.discordapp.com/attachments/1260631867510493224/1266057645350064138/00de6fcce74eafb1.png?ex=66a5bdd0&is=66a46c50&hm=76ef8b6713bda90a9f78de29afa7d34dca20d55297f85eac162955c3a4e93bdb&');
-                background-size:     cover;                      /* <------ */
-    		    background-repeat:   no-repeat;
-    		    background-position: center center;
-                background-attachment: fixed;
-
-		        color: white;
-                font-family:'Fixedsys Excelsior 3.01';
-                src: url('font.ttf');
-                scroll-behavior: smooth;
+            .section {
+                margin: 10px 0;
+                border: 1px solid #ccc;
+                border-radius: 5px;
             }
-            *, html {
-                scroll-behavior: smooth !important;
+            .section-title {
+                background-color: #f1f1f1;
+                padding: 10px;
+                cursor: pointer;
             }
-            .update {
-                color:azure;
-                cursor:pointer;
-                font-size: 25;
-                transition-duration: 0.4s;
-                text-align: center;
-                position: relative;
-            }
-            .update:hover {
-                color:blueviolet;
-                cursor:pointer;
-                transition-duration: 0.4s;
-                font-weight: 1200;
-                font-size: 30;
-            }
-            .hide {
+            .section-content {
                 display: none;
-            }
-            .content {
-                display: block;
-                transition: max-height 0.5s ease-in-out;
-                font-size: 24px;
-	            padding-left: 70px;
-                background: #ffffff1a;
-                max-height: 0;
-                overflow: hidden;
-                color:rgb(183, 197, 197);
-            }
-            #align {
-                padding: 25px;
-	            padding-left: 100px;
-                right: 0;
-                left: 0;
-                top: 0
-            }
-            #align_text {
-                padding: 25px;
-	            padding-left: 50px;
+                padding: 10px;
             }
         </style>
     </head>
     <body>
-        <div id="align2">
-            <div id="align">
-                <br>
-                <h1>SLASHERS UPDATES LIST v0.1</h1>
-                <br><div>
-                    <input type="button" id="2.0.3b" class="hide">
-                    <label for="2.0.3b" class="update" id="align_text">Update 2.0.3b</label>
-                    <div id="2.0.3b" class="content" >
-                        🢒 Added map "The last forest" (By Tiya)
-                    
-                        <br>
-                        🢒 Added healthbar skins
-
-                        <br>
-                        🢒 Added menu
-
-                        <br>
-                        🢒 Added leaderboard
-                        <!-- 
-                            <br>
-                            🢒 Added map "Forest" (By Tiya)
-                        -->
-                        <br>
-                        🢒 Added radar
-
-                        <br>
-                        🢒 Added ambient support
-
-                        <br>
-                        <br>
-                        🢒 Updated localization
-
-                        <br>
-                        🢒 Updated credits
-
-                        <br>
-                        <br>
-                        🢒 Removed computer
-
-                        <br>
-                        🢒 Removed a lot of unused files from DP and RP
-
-                        <br>
-                        <br>
-                        🢒 Fixed animated items
-
-                        <br>
-                        🢒 Fixed item physics
-
-                    </div>
-                </div>
-                <br>
-                <div>
-                    <input type="button" id="2.0.3a" class="hide">
-                    <label for="2.0.3a" id="align_text" class="update">Update 2.0.3a</label>
-                    <div id="2.0.3a" class="content" >
-                        🢒 Port to version 1.21
-
-                        <br>
-                        🢒 Removed ability Ludge
-
-                        <br>
-                        🢒 Removed ability Brutality
-
-                    </div>
-                </div>
-                <br>
-                <div>
-                    <input type="button" id="2.0.2" class="hide">
-                    <label for="2.0.2" id="align_text" class="update">Update 2.0.2</label>
-                    <div id="2.0.2" class="content" >
-                        🢒 Port to version 1.20.5
-
-                        <br>
-                        🢒 Added Spray paint
-
-                        <br>
-                        🢒 Added Throwing knife
-
-                        <br>
-                        🢒 Added Adrenalin
-
-                        <br>
-                        🢒 Added ability Ludge
-
-                    </div>
-                </div>
-                <br>
-                <div>
-                    <input type="button" id="2.0.1" class="hide">
-                    <label for="2.0.1" id="align_text" class="update">Update 2.0.1</label>
-                    <div id="2.0.1" class="content" >
-                        🢒 Added new ability for killer - BRUTALITY
-
-                        <br>
-                        🢒 Removed starter the killer title
-
-                        <br>
-                        🢒 Modified tablist
-
-                        <br>
-                        🢒 Added killer's sword skins particles
-
-                        <br>
-                        🢒 Added classes for survivors
-
-                        <br>
-                        🢒 Debuffed killer RUNNER ability
-
-                        <br>
-                        🢒 Buffed killer GHOST ability
-
-                        <br>
-                        🢒 Modified screen's text placement
-
-                        <br>
-                        🢒 Modified KATANA sword skin
-
-                        <br>
-                        🢒 Added TOMAHAWK sword skin
-
-                        <br>
-                        🢒 Added statistic's interface block
-
-                        <br>
-                        🢒 Modified lobby location
-
-                        <br>
-                        🢒 Fixed some bugs
-
-                        <br>
-                        🢒 Modified health bar
-
-                        <br>
-                        🢒 Modified Killer's and Survivor's health bar placement
-
-                        <br>
-                        🢒 Replaced generator loop sound
-
-                        <br>
-                        🢒 Modified GHOST ability cooldown starts when appears
-
-                        <br>
-                        🢒 Added beartrap pickup/open cooldown on close
-                    </div>
-                </div>
-                <br>
-                <div>
-                    <input type="button" id="2.0" class="hide">
-                    <label for="2.0" id="align_text" class="update">Update 2.0</label>
-                    <div id="2.0" class="content" >
-                        THIS UPDATE FOR NEW YEAR EVENT
-                        <br>
-                        <br>🢒 Added airdrop
-
-                        <br>🢒 Added FN SCAR
-
-                        <br>🢒 Added stats under health bar
-
-                        <br>🢒 Added candy?
-
-                        <br>🢒 Added cola?
-
-                        <br>🢒 Changed "medkit" to "First-aid kit"
-
-                        <br>🢒 Added some skins
-
-                        <br>🢒 Special character
-
-                        <br>🢒 Some optimization
-                    </div>
-                </div>
-            </div>
-        </div>
+        <h1>DA</h1>
+        <div id="sections-container"></div>
         <script>
-            var coll = document.getElementsByClassName("update");
-            var i;
+            // Функция для загрузки данных из JSON файла
+            async function loadSections() {
+                const response = await fetch('data.json');
+                const sections = await response.json();
+                const container = document.getElementById('sections-container');
             
-            for (i = 0; i < coll.length; i++) {
-              coll[i].addEventListener("click", function() {
-                this.classList.toggle("active");
-                var content = this.nextElementSibling;
-                if (content.style.maxHeight){
-                  content.style.maxHeight = null;
-                } else {
-                  content.style.maxHeight = content.scrollHeight + "px";
-                }
-              });
+                sections.forEach(section => {
+                    const sectionDiv = document.createElement('div');
+                    sectionDiv.classList.add('section');
+                
+                    const titleDiv = document.createElement('div');
+                    titleDiv.classList.add('section-title');
+                    titleDiv.textContent = section.title;
+                    titleDiv.onclick = () => {
+                        const contentDiv = sectionDiv.querySelector('.section-content');
+                        contentDiv.style.display = contentDiv.style.display === 'block' ? 'none' : 'block';
+                    };
+                
+                    const contentDiv = document.createElement('div');
+                    contentDiv.classList.add('section-content');
+                    contentDiv.textContent = section.content;
+                
+                    sectionDiv.appendChild(titleDiv);
+                    sectionDiv.appendChild(contentDiv);
+                    container.appendChild(sectionDiv);
+                });
             }
+            
+            // Загружаем секции при загрузке страницы
+            window.onload = loadSections;
         </script>
     </body>
 </html>
