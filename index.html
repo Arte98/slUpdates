@@ -28,19 +28,12 @@
             *, html {
                 scroll-behavior: smooth !important;
             }
-            .hide {
-                display: none;
-            }
             #align {
                 padding: 25px;
 	            padding-left: 100px;
                 right: 0;
                 left: 0;
                 top: 0
-            }
-            #align_text {
-                padding: 25px;
-	            padding-left: 50px;
             }
             .content {
                 display: none; /* Скрыть содержимое по умолчанию */
@@ -51,6 +44,10 @@
                 max-height: 0; /* Устанавливаем начальную высоту 0 */
                 transition: max-height 0.5s ease-in-out;
                 overflow: hidden;
+            }
+            .content.show {
+                display: block; /* Отображаем содержимое при необходимости */
+                max-height: 200px; /* Определите максимальную высоту для перехода */
             }
             .toggle {
                 color:azure;
