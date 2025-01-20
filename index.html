@@ -1,9 +1,76 @@
 <html lang="ru">
     <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Открывающиеся блоки</title>
+        <title>
+            SL : Updates
+        </title>
         <style>
+            @font-face {
+             font-family: 'Fixedsys Excelsior 3.01';
+             src: url(font.ttf);
+            }
+            BODY {
+                background-color: #eb01a5;
+                background: linear-gradient(
+                  to left,
+                  rgba(0,0,0, 0) 10%,
+                  rgba(0,0,20, 100) 80%
+                ),url('https://cdn.discordapp.com/attachments/1206576134880497734/1313477517146984519/07002a2877b6b3d5169ce1c5ae2def05.jpg?ex=678f8ec3&is=678e3d43&hm=19215e1c283f33ca2d91d02594e332de7fcfa77b755bebdc432a41e0cd6ddcdc&');
+                background-size:     cover;                      /* <------ */
+    		    background-repeat:   no-repeat;
+    		    background-position: center center;
+                background-attachment: fixed;
+
+		        color: white;
+                font-family:'Fixedsys Excelsior 3.01';
+                src: url('font.ttf');
+                scroll-behavior: smooth;
+            }
+            *, html {
+                scroll-behavior: smooth !important;
+            }
+            .update {
+                color:azure;
+                cursor:pointer;
+                font-size: 25;
+                transition-duration: 0.4s;
+                text-align: center;
+                position: relative;
+            }
+            .update:hover {
+                color:blueviolet;
+                cursor:pointer;
+                transition-duration: 0.4s;
+                font-weight: 1200;
+                font-size: 30;
+            }
+            .hide {
+                display: none;
+            }
+            .content {
+                margin-left: 80px;
+                display: block;
+                transition: max-height 0.5s ease-in-out;
+                max-height: 0;
+                overflow: hidden;
+            }
+            .textcontent {
+                background: #ffffff1a;
+                color:rgb(183, 197, 197);
+                margin: 5px;
+                font-size: 24px;
+	            padding-left: 10px;
+            }
+            #align {
+                padding: 25px;
+	            padding-left: 100px;
+                right: 0;
+                left: 0;
+                top: 0
+            }
+            #align_text {
+                padding: 25px;
+	            padding-left: 50px;
+            }
             .content {
                 display: none; /* Скрыть содержимое по умолчанию */
                 padding: 10px;
