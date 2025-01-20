@@ -47,7 +47,7 @@
             }
             .content.show {
                 display: block; /* Отображаем содержимое при необходимости */
-                max-height: 200px; /* Определите максимальную высоту для перехода */
+                max-height: none; /* Определите максимальную высоту для перехода */
             }
             .toggle {
                 color:azure;
@@ -73,45 +73,44 @@
         </div>
 
         <script>
-            
-        fetch('data.json') // Загрузка данных из JSON-файла
-            .then(response => response.json())
-            .then(data => {
-                const container = document.getElementById('container');
-                data.forEach(item => {
-                    // Создание открывающегося блока
-                    const toggle = document.createElement('div');
-                    toggle.className = 'toggle';
-                    toggle.innerText = item.title;
-
-                    const content = document.createElement('div');
-                    content.className = 'content';
-
-                    // Создание списка для строк содержимого
-                    const list = document.createElement('ul');
-                    item.content.forEach(line => {
-                        const listItem = document.createElement('li');
-                        listItem.innerText = line;
-                        list.appendChild(listItem);
+            fetch('data.json') // Загрузка данных из JSON-файла
+                .then(response => response.json())
+                .then(data => {
+                    const container = document.getElementById('container');
+                    data.forEach(item => {
+                        // Создание открывающегося блока
+                        const toggle = document.createElement('div');
+                        toggle.className = 'toggle';
+                        toggle.innerText = item.title;
+                    
+                        const content = document.createElement('div');
+                        content.className = 'content';
+                    
+                        // Создание списка для строк содержимого
+                        const list = document.createElement('ul');
+                        item.content.forEach(line => {
+                            const listItem = document.createElement('li');
+                            listItem.innerText = line;
+                            list.appendChild(listItem);
+                        });
+                        content.appendChild(list);
+                    
+                        // Добавление обработчика событий для открытия/закрытия блока
+                        toggle.addEventListener('click', () => {
+                            content.classList.toggle('show'); // Переключаем класс 'show'
+                        
+                            if (content.classList.contains('show')) {
+                                content.style.display = 'block'; // Убедитесь, что display установлен в block
+                            } else {
+                                content.style.display = 'none'; // Убираем display при скрытии
+                            }
+                        });
+                    
+                        container.appendChild(toggle);
+                        container.appendChild(content);
                     });
-                    content.appendChild(list);
-
-                    // Добавление обработчика событий для открытия/закрытия блока
-                    toggle.addEventListener('click', () => {
-                        content.classList.toggle('show'); // Переключаем класс 'show'
-
-                        if (content.classList.contains('show')) {
-                            content.style.display = 'block'; // Убедитесь, что display установлен в block
-                        } else {
-                            content.style.display = 'none'; // Убираем display при скрытии
-                        }
-                    });
-
-                    container.appendChild(toggle);
-                    container.appendChild(content);
-                });
-            })
-            .catch(error => console.error('Ошибка загрузки данных:', error));
+                })
+                .catch(error => console.error('Ошибка загрузки данных:', error));
         </script>
     </body>
 </html>
