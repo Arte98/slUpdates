@@ -1,71 +1,60 @@
-<!DOCTYPE html>
 <html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Открывающиеся секции</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-        }
-        .section {
-            margin-bottom: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            overflow: hidden;
-            transition: max-height 0.5s ease-in-out;
-        }
-        .section-title {
-            background-color: #f1f1f1;
-            padding: 10px;
-            cursor: pointer;
-        }
-        .section-content {
-            max-height: 0;
-            padding: 0 10px;
-            overflow: hidden;
-            transition: max-height 0.5s ease-in-out;
-        }
-        .active .section-content {
-            max-height: 100px; /* Увеличьте при необходимости */
-            padding: 10px;
-        }
-    </style>
-</head>
-<body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Открывающиеся блоки</title>
+        <style>
+            .content {
+                display: none; /* Скрыть содержимое по умолчанию */
+                padding: 10px;
+                border: 1px solid #ccc;
+                margin-top: 5px;
+            }
+            .toggle {
+                cursor: pointer;
+                background-color: #f1f1f1;
+                padding: 10px;
+                border: 1px solid #ccc;
+                margin: 5px 0;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="container"></div>
 
-    <h1>Открывающиеся секции</h1>
-    <div id="sections-container"></div>
+        <script>
+            fetch('data.json') // Загрузка данных из JSON-файла
+                .then(response => response.json())
+                .then(data => {
+                    const container = document.getElementById('container');
+                    data.forEach(item => {
+                        // Создание открывающегося блока
+                        const toggle = document.createElement('div');
+                        toggle.className = 'toggle';
+                        toggle.innerText = item.title;
 
-    <script>
-        fetch('data.json')
-            .then(response => response.json())
-            .then(data => {
-                const container = document.getElementById('sections-container');
-                data.forEach(section => {
-                    const sectionDiv = document.createElement('div');
-                    sectionDiv.classList.add('section');
+                        const content = document.createElement('div');
+                        content.className = 'content';
 
-                    const titleDiv = document.createElement('div');
-                    titleDiv.classList.add('section-title');
-                    titleDiv.textContent = section.title;
-                    sectionDiv.appendChild(titleDiv);
+                        // Создание списка для строк содержимого
+                        const list = document.createElement('ul');
+                        item.content.forEach(line => {
+                            const listItem = document.createElement('li');
+                            listItem.innerText = line;
+                            list.appendChild(listItem);
+                        });
+                        content.appendChild(list);
 
-                    const contentDiv = document.createElement('div');
-                    contentDiv.classList.add('section-content');
-                    contentDiv.textContent = section.content;
-                    sectionDiv.appendChild(contentDiv);
+                        // Добавление обработчика событий для открытия/закрытия блока
+                        toggle.addEventListener('click', () => {
+                            content.style.display = content.style.display === 'none' ? 'block' : 'none';
+                        });
 
-                    titleDiv.addEventListener('click', () => {
-                        sectionDiv.classList.toggle('active');
+                        container.appendChild(toggle);
+                        container.appendChild(content);
                     });
-
-                    container.appendChild(sectionDiv);
-                });
-            })
-            .catch(error => console.error('Ошибка при загрузке JSON:', error));
-    </script>
-
-</body>
+                })
+                .catch(error => console.error('Ошибка загрузки данных:', error));
+        </script>
+    </body>
 </html>
