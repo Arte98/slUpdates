@@ -39,7 +39,7 @@
                 display: none; /* Скрыть содержимое по умолчанию */
                 color:rgb(183, 197, 197);
                 font-size: 24px;
-	            padding-left: 70px;
+	            padding-left: 30px;
                 background: #ffffff1a;
                 max-height: 0; /* Устанавливаем начальную высоту 0 */
                 transition: max-height 0.5s ease-in-out;
@@ -82,10 +82,10 @@
                         const toggle = document.createElement('div');
                         toggle.className = 'toggle';
                         toggle.innerText = item.title;
-                    
+
                         const content = document.createElement('div');
                         content.className = 'content';
-                    
+
                         // Создание списка для строк содержимого
                         const list = document.createElement('ul');
                         item.content.forEach(line => {
@@ -94,18 +94,18 @@
                             list.appendChild(listItem);
                         });
                         content.appendChild(list);
-                    
+
                         // Добавление обработчика событий для открытия/закрытия блока
                         toggle.addEventListener('click', () => {
                             content.classList.toggle('show'); // Переключаем класс 'show'
-                        
+
                             if (content.classList.contains('show')) {
                                 content.style.display = 'block'; // Убедитесь, что display установлен в block
                             } else {
                                 content.style.display = 'none'; // Убираем display при скрытии
                             }
                         });
-                    
+
                         container.appendChild(toggle);
                         container.appendChild(content);
                     });
