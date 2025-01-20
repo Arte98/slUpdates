@@ -23,19 +23,38 @@
         <div id="container"></div>
 
         <script>
-            fetch('data.json')
-               .then(response => response.json())
-               .then(data => {
-                   console.log(data); // Выводим загруженные данные в консоль
-                   const container = document.getElementById('container');
-                   data.forEach(item => {
-                       console.log(item); // Проверяем каждый элемент из массива
-                       console.log(item.content); // Проверяем, правильно ли загружается content
+            fetch('data.json') // Загрузка данных из JSON-файла
+                .then(response => response.json())
+                .then(data => {
+                    const container = document.getElementById('container');
+                    data.forEach(item => {
+                        // Создание открывающегося блока
+                        const toggle = document.createElement('div');
+                        toggle.className = 'toggle';
+                        toggle.innerText = item.title;
 
-                       // Остальной код...
-                   });
+                        const content = document.createElement('div');
+                        content.className = 'content';
+
+                        // Создание списка для строк содержимого
+                        const list = document.createElement('ul');
+                        item.content.forEach(line => {
+                            const listItem = document.createElement('li');
+                            listItem.innerText = line;
+                            list.appendChild(listItem);
+                        });
+                        content.appendChild(list);
+
+                        // Добавление обработчика событий для открытия/закрытия блока
+                        toggle.addEventListener('click', () => {
+                            content.style.display = content.style.display === 'none' ? 'block' : 'none';
+                        });
+
+                        container.appendChild(toggle);
+                        container.appendChild(content);
+                    });
                 })
-            .catch(error => console.error('Ошибка загрузки данных:', error));
+                .catch(error => console.error('Ошибка загрузки данных:', error));
         </script>
     </body>
 </html>
