@@ -1,61 +1,71 @@
 <!DOCTYPE html>
 <html lang="ru">
-    <head>
-        <title>Открывающиеся секции</title>
-        <style>
-            body {
-                background-color: wheat;
-            }
-            .section {
-                margin: 10px 0;
-                border: 1px solid #ccc;
-                border-radius: 5px;
-            }
-            .section-title {
-                background-color: #f1f1f1;
-                padding: 10px;
-                cursor: pointer;
-            }
-            .section-content {
-                display: none;
-                padding: 10px;
-            }
-        </style>
-    </head>
-    <body>
-        <h1>DA</h1>
-        <div id="sections-container"></div>
-        <script>
-            // Функция для загрузки данных из JSON файла
-            async function loadSections() {
-                const response = await fetch('data.json');
-                const sections = await response.json();
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Открывающиеся секции</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .section {
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        .section-title {
+            background-color: #f1f1f1;
+            padding: 10px;
+            cursor: pointer;
+        }
+        .section-content {
+            max-height: 0;
+            padding: 0 10px;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        .active .section-content {
+            max-height: 100px; /* Увеличьте при необходимости */
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Открывающиеся секции</h1>
+    <div id="sections-container"></div>
+
+    <script>
+        fetch('data.json')
+            .then(response => response.json())
+            .then(data => {
                 const container = document.getElementById('sections-container');
-            
-                sections.forEach(section => {
+                data.forEach(section => {
                     const sectionDiv = document.createElement('div');
                     sectionDiv.classList.add('section');
-                
+
                     const titleDiv = document.createElement('div');
                     titleDiv.classList.add('section-title');
                     titleDiv.textContent = section.title;
-                    titleDiv.onclick = () => {
-                        const contentDiv = sectionDiv.querySelector('.section-content');
-                        contentDiv.style.display = contentDiv.style.display === 'block' ? 'none' : 'block';
-                    };
-                
+                    sectionDiv.appendChild(titleDiv);
+
                     const contentDiv = document.createElement('div');
                     contentDiv.classList.add('section-content');
                     contentDiv.textContent = section.content;
-                
-                    sectionDiv.appendChild(titleDiv);
                     sectionDiv.appendChild(contentDiv);
+
+                    titleDiv.addEventListener('click', () => {
+                        sectionDiv.classList.toggle('active');
+                    });
+
                     container.appendChild(sectionDiv);
                 });
-            }
-            
-            // Загружаем секции при загрузке страницы
-            window.onload = loadSections;
-        </script>
-    </body>
+            })
+            .catch(error => console.error('Ошибка при загрузке JSON:', error));
+    </script>
+
+</body>
 </html>
