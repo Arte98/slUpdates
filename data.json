@@ -1,5 +1,9 @@
 [
     {
+        "title": "Update 0.2",
+        "content": ["Added chase module","Added ambient module","Added new ambient sounds","Fixed spawn code (gens/fuses)","Nerf baseball bat dash strength from 20000 to 10000"]
+    },
+    {
         "title": "Update 0.1",
         "content": ["Port to version 1.21.4","Code rewrite"]
     }
