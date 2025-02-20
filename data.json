@@ -1,5 +1,9 @@
 [
     {
+        "title": "Update 0.2",
+        "content": ["Returned 3 abilities","Added ability selection menu","Updated chase module","Added new secret item","Killer is now indicated in the player list","Fixed beartrap physics","Added CD to killer hits"]
+    },
+    {
         "title": "Update 0.1 patch #1",
         "content": ["Added chase module","Added ambient module","Added new ambient sounds","Fixed spawn code (gens/fuses)","Nerf baseball bat dash strength from 20000 to 10000"]
     },
